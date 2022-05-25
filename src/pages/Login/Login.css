@@ -1,0 +1,33 @@
+.login {
+    background-image: url('https://img.freepik.com/free-vector/abstract-secure-technology-background_23-2148331624.jpg?t=st=1653395761~exp=1653396361~hmac=673bf557690254cd49151ce7034314e887ac7ea59f125b30c9f6150ef2525076&w=740');
+    background-size: cover;
+    margin-bottom: -20px;
+
+}
+
+.login-form {
+    width: 350px;
+    border: 2px solid rgb(175, 171, 171);
+    border-radius: 30px;
+}
+
+.input {
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    margin-top: 5px;
+    margin-left: 15px;
+    color: whitesmoke;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 570px) {
+    .login-form {
+        width: 250px;
+        border-radius: 10px;
+    }
+}

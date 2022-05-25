@@ -10,6 +10,7 @@ import Contact from './pages/Contact/Contact';
 import Login from './pages/Login/Login';
 import Notfound from './pages/Notfound/Notfound';
 import Addreview from './pages/Addreview/Addreview';
+import Signup from './pages/Login/Signup';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path='/review' element={<Addreview></Addreview>}></Route>
         <Route path='/contact' element={<Contact></Contact>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/register' element={<Signup></Signup>}></Route>
         <Route path='*' element={<Notfound></Notfound>}></Route>
       </Routes>
 

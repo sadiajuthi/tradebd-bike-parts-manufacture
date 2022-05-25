@@ -6,9 +6,9 @@ import { FiPhoneCall, FiMail } from "react-icons/fi";
 
 const Footer = () => {
     return (
-        <div className='bg-gray-800 text-white'>
+        <div className='w-full h-full bg-blue-900 text-white'>
             <div className='px-12'>
-                <div className='grid grid-cols-3 justify-items-center mt-5 p-5 '>
+                <div className='grid md:grid-cols-3 justify-items-center mt-5 p-5 '>
                     <div className="">
                         <h4 className='text-2xl'>TradeBD</h4>
                         <p>

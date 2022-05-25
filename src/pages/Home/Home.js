@@ -1,4 +1,5 @@
 import React from 'react';
+import About from './About';
 import BusinessSummary from './BusinessSummary';
 import Extra from './Extra';
 import Review from './Review';
@@ -9,12 +10,12 @@ const Home = () => {
             <div>
                 <img className='w-full' src="https://media.istockphoto.com/photos/motorcycle-repairing-picture-id1266827300" alt="" />
             </div>
-
+            <About></About>
             <div className='px-12'>
-                <h1 className='text-5xl mt-10 pt-10 mb-10 text-blue-900 font-bold text-center'>Introduction Of The Tools, We Manufacture</h1>
+                <h1 className='text-4xl mt-10 pt-10 mb-10 text-blue-900 font-bold text-center'>Introduction Of The Tools, We Manufacture</h1>
 
 
-                <div className='grid grid-cols-3 gap-2 justify-items-center'>
+                <div className='grid md:grid-cols-3 justify-items-center'>
                     <div class="card w-96 bg-base-100 shadow-xl">
                         <figure><img src="https://media.istockphoto.com/photos/motorcycle-parade-in-plovdiv-bulgaria-picture-id469433214?s=612x612" alt="WheelRim" /></figure>
                         <div class="card-body">
