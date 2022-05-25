@@ -17,8 +17,18 @@ const Navber = () => {
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/blog'>Blog</Link></li>
         <li><Link to='/about'>About Us</Link></li>
-        <li><Link to='/review'>Add a Review</Link></li>
+        <li><Link to='/portfolio'>My Portfolio</Link></li>
         <li><Link to='/contact'>Contact Us</Link></li>
+        {
+            user && <li><Link to='/dashboard'>Dashboard</Link></li>
+        }
+        <li>
+            {user ?
+
+                <Link to='/login' onClick={handleLogOut}>Logout</Link>
+                :
+                <Link to='/login' >Login</Link>}
+        </li>
 
     </>
     return (
@@ -40,12 +50,10 @@ const Navber = () => {
                 </ul>
             </div>
             <div class="navbar-end">
-                {
-                    user ?
-                        <Link to='/login' className=' btn btn-black' onClick={handleLogOut}>Logout</Link>
-                        :
-                        <Link to='/login' className=' btn btn-black'>Login</Link>
-                }
+
+                <label for="side-bar" tabindex="0" class="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                </label>
             </div>
         </div>
     );
