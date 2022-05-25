@@ -5,12 +5,44 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { BiUser } from "react-icons/bi";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
+
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import Loading from '../Shared/Loading/Loading';
+
 
 const Signup = () => {
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
     const navigate = useNavigate();
     const handleNavigateLogin = () => {
         navigate('/login')
     }
+
+    if (loading) {
+        return <Loading></Loading>
+    }
+
+    if (user) {
+        navigate('/')
+    }
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const name = event.target.name.value;
+        const email = event.target.email.value;
+        const password = event.target.password.value;
+        console.log(name, email, password);
+        await createUserWithEmailAndPassword(email, password)
+    }
+
+
+
+
     return (
         <div className='login pb-10 text-slate-100'>
             <div>
@@ -20,9 +52,9 @@ const Signup = () => {
                 <div className='self-center'>
                     <FaRegUserCircle className='text-6xl font-thin mx-auto text-slate-200 mb-5' />
                 </div>
-                <form className=''>
+                <form onSubmit={handleSubmit}>
                     <BiUser className='inline-block text-slate-100' />
-                    <input className='input' type="email" name="email" id="" placeholder='Name' required />
+                    <input className='input' type="name" name="name" id="" placeholder='Name' required />
                     <hr className='mt-0' />
                     <HiOutlineMail className='inline-block text-slate-100' />
                     <input className='input' type="email" name="email" id="" placeholder='Email Id' required />
@@ -31,7 +63,7 @@ const Signup = () => {
                     <input className='input' type="password" name="password" id="" placeholder='Password' required />
                     <hr className='mt-0' />
 
-                    <div className=" m-auto">
+                    <div className=" mt-5">
                         <input className='btn btn-wide bg-gradient-to-r from-cyan-400 to-blue-700 hover:from-pink-400 hover:to-yellow-600 mt-3' type="submit" value="Register" />
                     </div>
                 </form>
@@ -42,8 +74,7 @@ const Signup = () => {
                         </span>
                     </small>
                 </p>
-                <div class="divider">Or</div>
-                <button className='btn btn-wide bg-gradient-to-r from-cyan-400 to-blue-700 hover:from-pink-400 hover:to-yellow-600'><FcGoogle className='text-3xl mr-2' /> Login with Google</button>
+
             </div>
 
         </div>
