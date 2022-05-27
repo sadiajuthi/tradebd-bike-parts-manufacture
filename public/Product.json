@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Motorcycle Wheel Rim",
+        "img": "https://media.istockphoto.com/photos/motorcycle-parade-in-plovdiv-bulgaria-picture-id469433214?s=612x612",
+        "description": "In order to meet excellent quality standards, we are maufacturing Bike Wheel Rim. Made from Aluminium Alloy. Flawless finish,Sturdy design ad Genuine Trust. ",
+        "quantity": "500",
+        "orderquatity": "100",
+        "price": "500"
+    },
+    {
+        "name": "Motorcycle Brake Disc",
+        "img": "https://media.istockphoto.com/photos/car-service-procedure-picture-id522633920?s=612x612",
+        "description": "To meet these requisites fully, Brembo brake discs are manufactured with superior, tolerances and dimensions for each motorcycle type and application.",
+        "quantity": "800",
+        "orderquatity": "120",
+        "price": "600"
+    },
+    {
+        "name": "Motorcycle chain",
+        "img": "https://media.istockphoto.com/photos/the-industrial-chains-for-machine-picture-id964891572?s=612x612",
+        "description": "High Quality 420 Roller Chain 10FT Motorcycle Dirt Bike Chain Go Kart, Mini Bike, Bulk Chain With 1 Connecting Link420 pitch, standard duty.",
+        "quantity": "1000",
+        "orderquatity": "150",
+        "price": "300"
+    }
+]

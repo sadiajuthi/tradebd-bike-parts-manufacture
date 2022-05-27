@@ -35,7 +35,7 @@ const MyPortfolio = () => {
                     <div>
                         <h1 className='text-xl font-semibold mb-3 pl-10'>My skills</h1>
 
-                        <div className='px-10 pb-10 mr-10'>
+                        <div className='px-10 pb-10 pr-10 mr-10'>
 
                             <p className='font-semibold'>HTML 70%</p>
                             <progress class="progress progress-primary w-100 h-2 mt-1 mb-2" value="70" max="100"></progress>
