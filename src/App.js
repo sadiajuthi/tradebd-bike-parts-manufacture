@@ -14,6 +14,7 @@ import Myorder from './pages/Dashboard/Myorder';
 import Myprofile from './pages/Dashboard/Myprofile';
 import Myreview from './pages/Dashboard/Myreview';
 import MyPortfolio from './pages/MyPortfolio/MyPortfolio';
+import PlaceOrder from './PlaceOrder/PlaceOrder';
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
       <Navber></Navber>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/home' element={<Home></Home>}></Route>
+        <Route path='/order/:productId' element={<PlaceOrder></PlaceOrder>}></Route>
         <Route path='blog' element={<Blog></Blog>}></Route>
         <Route path='portfolio' element={<MyPortfolio></MyPortfolio>}></Route>
         <Route path='contact' element={<Contact></Contact>}></Route>
