@@ -9,7 +9,7 @@ const Myorder = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('https://cryptic-tundra-74859.herokuapp.com/order')
+        fetch('http://localhost:5000/myorder')
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [user])
