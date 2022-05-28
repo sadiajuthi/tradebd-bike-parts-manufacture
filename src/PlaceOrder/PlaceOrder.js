@@ -12,7 +12,7 @@ const PlaceOrder = () => {
 
 
     useEffect(() => {
-        const url = `http://localhost:5000/product/${productId}`;
+        const url = `https://cryptic-tundra-74859.herokuapp.com/product/${productId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
