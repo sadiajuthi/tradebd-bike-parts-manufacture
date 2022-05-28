@@ -1,6 +1,6 @@
 # Project Name: TradeBD Manufecturing co.
 # Live site: https://tradebd-manufacture.web.app/
-About My Project: it is a warehouse website. This is my first fullstack website project. For font end I have used React js and for back end I have used Node-js and store my data in mongodb.
+About My Project: it is a Manufacture company website. This is a fullstack website project. For font end I have used React js and for back end I have used Node-js and store my data in mongodb.
 
 Library and Framework I used in this project:
 
