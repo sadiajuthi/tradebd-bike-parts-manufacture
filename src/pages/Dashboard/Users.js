@@ -7,7 +7,7 @@ const Users = () => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/user')
+        fetch('https://cryptic-tundra-74859.herokuapp.com/user')
             .then(res => res.json())
             .then(data => setUsers(data))
     }, [])
@@ -16,13 +16,13 @@ const Users = () => {
         <div>
             <h2 className="text-2xl">All Users: {users.length}</h2>
             <div class="overflow-x-auto">
-                <table class="table w-full">
+                <table class="table w-full text-xl">
                     <thead>
                         <tr>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
+
+                            <th>email</th>
+                            <th>make Admin</th>
+                            <th>delete User</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -16,9 +16,8 @@ const Navber = () => {
     const menuitems = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/blog'>Blog</Link></li>
-        <li><Link to='/about'>About Us</Link></li>
         <li><Link to='/portfolio'>My Portfolio</Link></li>
-        <li><Link to='/contact'>Contact Us</Link></li>
+
         {
             user && <li><Link to='/dashboard'>Dashboard</Link></li>
         }
@@ -29,6 +28,15 @@ const Navber = () => {
                 :
                 <Link to='/login' >Login</Link>}
         </li>
+
+
+        <li className='text-blue-700'>
+            {user &&
+
+                <Link to='/login' onClick={handleLogOut}> {user?.displayName}</Link>
+            }
+        </li>
+
 
     </>
     return (

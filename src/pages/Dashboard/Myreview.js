@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import { toast, ToastContainer } from 'react-toastify';
 import './Myreview.css'
 
 const Myreview = () => {
@@ -28,13 +29,8 @@ const Myreview = () => {
                     console.log(newReview);
 
 
-
-
-
-
-
-                    // send product to mongodb
-                    fetch('http://localhost:5000/review', {
+                    // send review to mongodb
+                    fetch('https://cryptic-tundra-74859.herokuapp.com/review', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'
@@ -44,7 +40,7 @@ const Myreview = () => {
                         .then(res => res.json())
                         .then(data => {
                             console.log('added', data);
-                            alert('Your review Added')
+                            toast.success('Your review Added')
                         })
                 }
             })
@@ -54,7 +50,9 @@ const Myreview = () => {
         <div className='background'>
             <div className="px-12">
                 <h1 className='text-2xl font-semibold my-5 pt-10'>Add your valuable review!</h1>
+                <ToastContainer></ToastContainer>
                 <div>
+
                     <form className=' text-base items-center justify-content-center' onSubmit={handleSubmit(onSubmit)}>
                         <label className='block'>Your Name:</label>
                         <input className='h-8 w-96 border-gray-400 border-2 mb-3' defaultValue="" {...register('name', {

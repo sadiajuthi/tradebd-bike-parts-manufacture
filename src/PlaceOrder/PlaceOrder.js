@@ -40,7 +40,7 @@ const PlaceOrder = () => {
         }
 
 
-        fetch('http://localhost:5000/order', {
+        fetch('https://cryptic-tundra-74859.herokuapp.com/order', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
