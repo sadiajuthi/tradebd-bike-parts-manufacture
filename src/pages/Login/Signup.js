@@ -3,12 +3,13 @@ import { HiOutlineMail } from "react-icons/hi";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { FaRegUserCircle } from "react-icons/fa";
 import { BiUser } from "react-icons/bi";
-import { FcGoogle } from "react-icons/fc";
+
 import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import Loading from '../Shared/Loading/Loading';
+import useToken from '../../hooks/useToken';
 
 
 const Signup = () => {
@@ -18,6 +19,7 @@ const Signup = () => {
         loading,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
+    const [token] = useToken(user)
     const navigate = useNavigate();
     const handleNavigateLogin = () => {
         navigate('/login')
@@ -27,7 +29,7 @@ const Signup = () => {
         return <Loading></Loading>
     }
 
-    if (user) {
+    if (token) {
         navigate('/')
     }
 

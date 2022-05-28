@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
-import { isDisabled } from '@testing-library/user-event/dist/utils';
 
 const PlaceOrder = () => {
     const { productId } = useParams();
     const [product, setProduct] = useState({});
+
     const [user] = useAuthState(auth)
 
 
@@ -17,55 +17,44 @@ const PlaceOrder = () => {
             .then(res => res.json())
             .then(data => {
                 setProduct(data)
-                console.log(product)
+
             })
     }, []);
 
     const handlePlaceOrder = event => {
-
+        console.log(product);
+        const { _id, name, price } = product;
         event.preventDefault();
-        const orderQuantity = event.target.quantity;
-        const minimumOrder = product.orderquatity;
-        const availableQuantity = product.quantity;
-
-
-
 
         console.log('click');
-        if (orderQuantity > minimumOrder) {
 
-            alert('Please order more than minimum order quantity');
-            return;
+        const order = {
+            name: name,
+
+            poductId: _id,
+            address: event.target.address,
+            email: user.email,
+            quantity: event.target.quantity
+
+
         }
 
 
-        else {
-            const newQuantity = availableQuantity - orderQuantity
-            product.quantity = newQuantity;
-            const order = {
-                product: product.name,
-                poductId: productId,
-                adress: event.target.address,
-                email: user.email,
-                quantity: newQuantity
-
-            }
-
-
-            fetch('http://localhost:5000/order', {
-                method: 'POST',
-                headers: {
-                    'content-type': 'application/json'
-                }
+        fetch('http://localhost:5000/order', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('added', data);
+                alert('Your order Added')
             })
-                .then(res => res.json())
-                .then(data => {
-                    console.log('added', data);
-                    alert('Your product Added')
-                })
-        }
-
     }
+
+
 
 
 
@@ -88,10 +77,10 @@ const PlaceOrder = () => {
                 <div><h1 className="text-xl font-semibold my-4">Please fill the form to confirm Your Order!</h1>
                     <form className='' onSubmit={handlePlaceOrder}>
                         <label className='font-semibold block'>Name:</label>
-                        <input className='h-8 w-96 border-gray-400 border-2 mb-3' type="text" name="name" id="" placeholder='Enter your name' />
+                        <input className='h-8 w-96 border-gray-400 border-2 mb-3' type="text" name="customer" id="" />
 
                         <label className='font-semibold block'>Email:</label>
-                        <input className='h-8 w-96 border-gray-400 border-2 mb-3' type="text" name="name" id="" value={user.email} readOnly />
+                        <input className='h-8 w-96 border-gray-400 border-2 mb-3' type="text" name="name" id="" value={user?.email || ''} readOnly />
 
                         <label className='font-semibold block'>Address:</label>
                         <input className='h-8 w-96 border-gray-400 border-2 mb-3' type="text" name="address" id="" placeholder='enter your address' />
