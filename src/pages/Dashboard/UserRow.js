@@ -4,7 +4,7 @@ import { toast, ToastContainer } from 'react-toastify';
 const UserRow = ({ user, refetch }) => {
     const { email, role } = user;
     const makeAdmin = () => {
-        fetch(`https://cryptic-tundra-74859.herokuapp.com/${email}`, {
+        fetch(`http://localhost:5000/${email}`, {
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -24,7 +24,7 @@ const UserRow = ({ user, refetch }) => {
         const proceed = window.confirm('Are you sure to delete this user?')
         if (proceed) {
             console.log('delete user', _id);
-            const url = `https://cryptic-tundra-74859.herokuapp.com/user/${_id}`;
+            const url = `http://localhost:5000/user/${_id}`;
 
             fetch(url, {
                 method: 'DELETE'
@@ -44,7 +44,7 @@ const UserRow = ({ user, refetch }) => {
 
                 <td>{email}</td>
                 <td>{role !== 'admin' && <button onClick={makeAdmin} class="btn btn-xs">Make Admin</button>}</td>
-                <td><button onClick={handleRemove} class="btn btn-xs">Remove User</button></td>
+
             </tr>
         </div>
     );

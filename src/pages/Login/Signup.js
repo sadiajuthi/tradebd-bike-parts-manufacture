@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { HiOutlineMail } from "react-icons/hi";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { FaRegUserCircle } from "react-icons/fa";
@@ -9,37 +9,53 @@ import auth from '../../firebase.init';
 
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import Loading from '../Shared/Loading/Loading';
-import useToken from '../../hooks/useToken';
+// import useToken from '../../hooks/useToken';
 
 
 const Signup = () => {
+    const [users, setUser] = useState([])
     const [
         createUserWithEmailAndPassword,
         user,
         loading,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
-    const [token] = useToken(user)
+    // const [token] = useToken(user)
+
     const navigate = useNavigate();
     const handleNavigateLogin = () => {
-        navigate('/login')
+        navigate('/home')
     }
 
     if (loading) {
         return <Loading></Loading>
     }
 
-    if (token) {
-        navigate('/')
-    }
+    // if (token) {
+    //     navigate('/')
+    // }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         const name = event.target.name.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
+        const user = { name, email }
         console.log(name, email, password);
         await createUserWithEmailAndPassword(email, password)
+
+        fetch('http://localhost:5000/user', {
+            method: 'POST',
+            header: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('success', data);
+                setUser(data)
+            })
     }
 
 

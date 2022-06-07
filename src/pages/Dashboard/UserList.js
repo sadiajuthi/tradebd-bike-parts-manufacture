@@ -1,23 +1,26 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const UserList = ({ user }) => {
     const { email, role } = user;
+
     const makeAdmin = () => {
-        fetch(`https://cryptic-tundra-74859.herokuapp.com/admin/${email}`, {
+        fetch(`http://localhost:5000/user/admin/${email}`, {
             method: 'PUT'
         })
             .then(res => res.json())
             .then(data => {
 
                 console.log(data);
-                toast.success('Successfully made an Admin')
+                toast.success('Successfully made an Admin');
+                window.location.reload();
             })
 
     }
     return (
         <tr>
-            <th>1</th>
+
 
             <td>{email}</td>
 
@@ -25,7 +28,7 @@ const UserList = ({ user }) => {
                 role != 'admin' && <button onClick={makeAdmin} class="btn btn-xs">Make Admin</button>
             }</td>
 
-            <td><button class="btn btn-xs">Remove User</button></td>
+
         </tr>
     );
 };

@@ -30,7 +30,7 @@ const Myreview = () => {
 
 
                     // send review to mongodb
-                    fetch('https://cryptic-tundra-74859.herokuapp.com/review', {
+                    fetch('http://localhost:5000/review', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'
@@ -40,7 +40,7 @@ const Myreview = () => {
                         .then(res => res.json())
                         .then(data => {
                             console.log('added', data);
-                            toast.success('Your review Added')
+                            alert('Your review Added')
                         })
                 }
             })

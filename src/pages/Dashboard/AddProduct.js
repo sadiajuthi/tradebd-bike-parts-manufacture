@@ -28,7 +28,7 @@ const AddProduct = () => {
                     const newReview = { name, price, quantity, orderquatity, description, img }
                     console.log(newReview);
                     // send product to mongodb
-                    fetch('https://cryptic-tundra-74859.herokuapp.com/product', {
+                    fetch('http://localhost:5000/product', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'
@@ -115,7 +115,7 @@ const AddProduct = () => {
                         <br />
 
 
-                        <input className='btn btn-wide mx-auto my-5  w-96' type="submit" value='Add Review' />
+                        <input className='btn btn-wide mx-auto my-5  w-96' type="submit" value='Add Product' />
                     </form>
                 </div>
             </div>

@@ -20,6 +20,7 @@ import RequireAdmin from './pages/Login/RequireAdmin';
 import AddProduct from './pages/Dashboard/AddProduct';
 import ManageProduct from './pages/Dashboard/ManageProduct';
 import RequireAuth from './pages/Login/RequireAuth';
+import Allorder from './pages/Dashboard/Allorder';
 
 function App() {
   return (
@@ -38,21 +39,21 @@ function App() {
         <Route path='contact' element={<Contact></Contact>}></Route>
         <Route path='login' element={<Login></Login>}></Route>
         <Route path='register' element={<Signup></Signup>}></Route>
-        <Route path='*' element={<Notfound></Notfound>}></Route>
+
         <Route path='dashboard' element={<Dashboard></Dashboard>}>
           <Route path='myorder' element={<Myorder></Myorder>}></Route>
           <Route path='myprofile' element={<Myprofile></Myprofile>}></Route>
           <Route path='myreview' element={<Myreview></Myreview>}></Route>
-          <Route path='users' element={
-            <Users></Users>
-          }></Route>
+
+
+          <Route path='users' element={<Users></Users>}></Route>
           <Route path='addproduct' element={<AddProduct></AddProduct>}></Route>
           <Route path='manageproducts' element={<ManageProduct></ManageProduct>}></Route>
+          <Route path='allorder' element={<Allorder></Allorder>}></Route>
         </Route>
 
+        <Route path='*' element={<Notfound></Notfound>}></Route>
       </Routes>
-
-
       <Footer></Footer>
     </div>
   );

@@ -4,7 +4,7 @@ const ManageProduct = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('https://cryptic-tundra-74859.herokuapp.com/product')
+        fetch('http://localhost:5000/product')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
@@ -12,7 +12,7 @@ const ManageProduct = () => {
     const handleDeleteProduct = _id => {
         const deleteProduct = window.confirm('Are you sure to delete this item?')
         if (deleteProduct) {
-            const url = `https://cryptic-tundra-74859.herokuapp.com/product/${_id}`;
+            const url = `http://localhost:5000/${_id}`;
 
 
             fetch(url, {
@@ -21,7 +21,7 @@ const ManageProduct = () => {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
-                    const remaining = products.filter(product => product._id !== _id)
+                    const remaining = products.filter(p => p._id !== _id)
                     setProducts(remaining)
                 })
         }
@@ -50,7 +50,7 @@ const ManageProduct = () => {
 
                             <td> {product.quantity}</td>
 
-                            <td><button onClick={handleDeleteProduct} class="btn btn-xs">delete product</button></td>
+                            <td><button onClick={() => handleDeleteProduct(product._id)} class="btn btn-xs">delete product</button></td>
                         </tr>
                     )
                 }

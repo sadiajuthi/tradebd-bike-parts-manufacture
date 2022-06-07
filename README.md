@@ -1,4 +1,4 @@
-# Project Name: TradeBD Manufecturing co.
+# Project Name: TradeBD Bike Parts Manufecturing 
 # Live site: https://tradebd-manufacture.web.app/
 About My Project: it is a Manufacture company website. This is a fullstack website project. For font end I have used React js and for back end I have used Node-js and store my data in mongodb.
 

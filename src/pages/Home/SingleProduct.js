@@ -6,7 +6,7 @@ const SingleProduct = ({ product }) => {
     // const [user]= useAuthState(auth)
     const navigate = useNavigate();
     const handleOrder = () => {
-        navigate(`/order/${product._id}`)
+        navigate(`http://localhost:5000/order/${product._id}`)
     }
     return (
         <div>
